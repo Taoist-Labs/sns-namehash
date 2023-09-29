@@ -1,0 +1,33 @@
+{
+  "name": "@seedao/sns-namehash",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Taoist-Labs/sns-namehash",
+  "repository": "github:Taoist-Labs/sns-namehash",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "sns"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "prettier": "3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
