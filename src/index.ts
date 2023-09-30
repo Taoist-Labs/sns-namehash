@@ -1,10 +1,10 @@
 import { Buffer } from "buffer";
 import { keccak_256 } from "@noble/hashes/sha3";
 import { bytesToHex } from "@noble/hashes/utils";
-import { toUnicode } from "idna-uts46-hx";
+import { ens_normalize } from "@adraffy/ens-normalize";
 
 function normalize(name: string): string {
-  return name ? toUnicode(name, { useStd3ASCII: false }) : name;
+  return ens_normalize(name);
 }
 
 function namehash(name: string): string {
