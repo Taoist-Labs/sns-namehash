@@ -1,11 +1,11 @@
 import { Buffer } from "buffer";
 import { keccak_256 } from "@noble/hashes/sha3";
 import { bytesToHex } from "@noble/hashes/utils";
+import { toUnicode } from "idna-uts46-hx";
 
-// import * as uts46 from "idna-uts46-hx";
-// function normalize(name: string): string {
-//   return name ? uts46.toUnicode(name, { useStd3ASCII: false }) : name;
-// }
+function normalize(name: string): string {
+  return name ? toUnicode(name, { useStd3ASCII: false }) : name;
+}
 
 function namehash(name: string): string {
   let node: string =
@@ -20,4 +20,4 @@ function namehash(name: string): string {
   return "0x" + node;
 }
 
-export { namehash };
+export { normalize, namehash };
