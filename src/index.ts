@@ -8,11 +8,16 @@ import { bytesToHex } from "@noble/hashes/utils";
 // 48~57 0-9
 // 65~90 A-Z
 // 97~122 a-z
+// 46 . (dot)
 export function normalize(name: string): [boolean, string] {
   const lowerCaseName = name.toLowerCase();
   for (let i = 0; i < lowerCaseName.length; i++) {
     const char = lowerCaseName.charCodeAt(i);
-    if ((char >= 48 && char <= 57) || (char >= 97 && char <= 122)) {
+    if (
+      (char >= 48 && char <= 57) ||
+      (char >= 97 && char <= 122) ||
+      char == 46
+    ) {
       continue;
     }
     return [false, ""];
