@@ -27,6 +27,13 @@ describe("testing 'index' file", () => {
         ["<abc", [false, ""]],
         ["{abc", [false, ""]],
         ["|abc", [false, ""]],
+        //
+        ["😭nihao", [false, ""]],
+        ["nihao😭", [false, ""]],
+        ["😭nihao😭", [false, ""]],
+        ["ni😊hao", [false, ""]],
+        ["ni😊😄hao", [false, ""]],
+        ["ni😊ha🤩o", [false, ""]],
       ];
       for (const tt of tests) {
         expect(normalize(tt[0])).to.eql([tt[1][0], tt[1][1]]);

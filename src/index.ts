@@ -4,7 +4,8 @@ import { bytesToHex } from "@noble/hashes/utils";
 
 // returns the normalized version of a sns name
 //
-// ASCII:
+// supported ASCII listing:
+//
 // 0-9: 48~57
 // a-z: 97~122
 // !  : 33
@@ -16,6 +17,7 @@ import { bytesToHex } from "@noble/hashes/utils";
 // -  : 45
 // .  : 46 (dot)
 // _  : 95
+//
 export function normalize(name: string): [boolean, string] {
   const lowerCaseName = name.toLowerCase();
   for (let i = 0; i < lowerCaseName.length; i++) {
